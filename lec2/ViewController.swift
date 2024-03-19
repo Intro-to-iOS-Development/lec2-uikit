@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // MARK: - Properties (view)
     
     // 1. Create the view property
+    private let profileImageView = UIImageView()
     private let nameLabel = UILabel()
     
     // MARK: - viewDidLoad
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
         
         // 6. Call setup function
         setupNameLabel()
+        setupProfileImageView()
     }
     
     // MARK: - Set Up Views
@@ -44,5 +46,20 @@ class ViewController: UIViewController {
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
+    
+    private func setupProfileImageView() {
+        profileImageView.image = UIImage(named: "vin_eating")
+        
+        view.addSubview(profileImageView)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            profileImageView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 24),
+            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profileImageView.heightAnchor.constraint(equalToConstant: 256),
+            profileImageView.widthAnchor.constraint(equalToConstant: 256)
+        ])
+    }
 
 }
+
